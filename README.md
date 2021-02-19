@@ -24,12 +24,16 @@ Type `rs` inside the terminal to manually restart the app.
 
 more information [ts-node-dev](https://www.npmjs.com/package/ts-node-dev)
 
-# Production
+# Docker
 
 ```bash
-$ npm run build
+$ docker-compose up
 ```
 
+# TODO
+1. Tests
+2. Generate documentation
+3. Open API
 
 This will build all files inside `dist` folder 
 
