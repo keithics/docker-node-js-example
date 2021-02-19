@@ -1,11 +1,14 @@
 import * as express from "express";
 import * as helmet from "helmet";
 import * as bodyParser from "body-parser";
-import {IndexRoutes} from './counties/counties.route';
+import {IndexRoutes} from './counties/county.route';
 import * as path from 'path';
 import * as mongoose from "mongoose";
 import {config} from "./config";
 
+/**
+ * Express Class App
+ */
 class App {
 
   public app: express.Application = express();
@@ -17,12 +20,19 @@ class App {
     this.indexRoutes.routes(this.app);
   }
 
+  /**
+   * We do all initializations here, if you want to add another database it here
+   */
   constructor() {
     this.config();
     this.setupRoutes();
     this.mongoSetup();
   }
 
+  /**
+   * We load all of our middleware here
+   * @private
+   */
   private config(): void{
     this.app.use(helmet())
     this.app.use(bodyParser.json());
@@ -31,6 +41,10 @@ class App {
     this.app.use(express.static('public'));
   }
 
+  /**
+   * MongoDB connection
+   * @private
+   */
   private mongoSetup(): void{
     mongoose.set('debug', config.DEBUG_MONGO);
     mongoose.connect(config.MONGO_URL, {

@@ -1,0 +1,72 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "",
+      "variables": {}
+    }
+  ],
+  "info": {
+    "version": "6bc3035a-2877-4a97-8d69-64fcbb6b3dc7",
+    "title": "RDC",
+    "description": "",
+    "termsOfService": "",
+    "contact": {},
+    "license": {
+      "name": ""
+    }
+  },
+  "paths": {
+    "/seed": {
+      "get": {
+        "summary": "Database Seed",
+        "operationId": "DatabaseSeed",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/search": {
+      "post": {
+        "summary": "Search Counties",
+        "operationId": "SearchCounties",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "text/plain": {
+              "schema": {
+                "type": "string",
+                "example": {
+                  "key": "b"
+                }
+              },
+              "example": "{\n    \"key\":\"b\"\n}"
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "security": [],
+  "tags": [],
+  "externalDocs": {
+    "url": "",
+    "description": ""
+  },
+  "warnings": [
+    "Two GET or two POST methods for the same path are not allowed in OpenAPI specification : posthttp://localhost:3000/search"
+  ]
+}

@@ -1,6 +1,9 @@
-![ExpressTS](https://github.com/keithics/express-typescript/workflows/Node.js%20CI/badge.svg)
-# ExpressJS in Typescript
-This is a basic example on how to use typescript in express. Heavily inspired by [Microsoft Typescript Node Starter][https://github.com/microsoft/TypeScript-Node-Starter]
+# ExpressTS with Docker
+This is an example of Express in Typescript and Docker
+
+## API
+https://app.swaggerhub.com/apis/keithics/rdc/6bc3035a-2877-4a97-8d69-64fcbb6b3dc7#/
+
 
 ## Installation
 
@@ -24,6 +27,26 @@ Type `rs` inside the terminal to manually restart the app.
 
 more information [ts-node-dev](https://www.npmjs.com/package/ts-node-dev)
 
+# Linting
+
+```bash
+$ npm run lint
+```
+
+# Automated Tests
+
+```bash
+$ npm run test
+```
+
+# Code Documentation
+Please check the documentation folder
+
+To update the documentation, just run
+```bash
+$ npm run doc
+```
+
 # Docker
 
 ```bash
@@ -31,11 +54,12 @@ $ docker-compose up
 ```
 
 # TODO
-1. Tests
-2. Generate documentation
-3. Open API
+~~1. Tests~~
 
-This will build all files inside `dist` folder 
+~~2. Generate documentation~~
+   
+~~3. Open API~~
+
 
 # License
 

@@ -1,6 +1,9 @@
 import * as mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
+/**
+ * Database schema for Counties
+ */
 export const CountiesSchema = new Schema({
     name: {
         type: String,
