@@ -2,7 +2,7 @@
 This is an example of Express in Typescript and Docker
 MongoDB debug is true by default, to turn it off, set DEBUG_MONGO=false in .env or your system's environment file 
 ## API
-https://app.swaggerhub.com/apis/keithics/rdc/6bc3035a-2877-4a97-8d69-64fcbb6b3dc7#/
+https://app.swaggerhub.com/apis/keithics/rdc/1.1
 
 
 ## Installation
