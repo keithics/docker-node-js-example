@@ -13,8 +13,8 @@ export class USCounties {
      * @param res Express Response
      * @returns an Array of Counties
      */
-    public async search(req: Request, res: Response): Promise<CountyInterface[]> {
-        const key = '^' + req.body.key || '' + '.*';
+    public async suggest(req: Request, res: Response): Promise<CountyInterface[]> {
+        const key = '^' + req.query.q || '' + '.*';
         const counties = await County.find(
             {
                 $or: [
@@ -22,6 +22,7 @@ export class USCounties {
                     {state: {$regex: key, $options: 'i'}}
                 ]
             }
+            , {fips:1,name:1,state:1, _id:0}
         ).limit(10).exec()
         return res.jsonp(counties)
     }
@@ -34,8 +35,8 @@ export class USCounties {
      */
     public seed(req: Request, res: Response): void{
 
-        const rawdata = fs.readFileSync('./seed-data.json');
-        const counties = JSON.parse(rawdata);
+        const rawData = fs.readFileSync('./seed-data.json');
+        const counties = JSON.parse(rawData);
 
         counties.forEach(c => {
             const county = new County(c)
@@ -45,9 +46,6 @@ export class USCounties {
         res.jsonp({message:'ok'})
     }
 
-    public index(req: Request, res: Response): void{
-        res.jsonp({message:'ok'})
-    }
 
 
 }

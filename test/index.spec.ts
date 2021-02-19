@@ -12,12 +12,9 @@ describe('Running REST API County test.. ', () => {
         // run database seed
     });
 
-    it('/POST /search with key:a, it should return an array for counties that begins with letter `a` in either state or name', (done) => {
+    it('/GET /search with key:a, it should return an array for counties that begins with letter `a` in either state or name', (done) => {
         Request
-            .post('/search')
-            .send({
-                key:'a'
-            })
+            .get('/suggest?q=a')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
@@ -28,33 +25,20 @@ describe('Running REST API County test.. ', () => {
             .catch(err => done(err))
     });
 
-    it('/POST /search with key:`this is a fake search key`, it should return an empty array', (done) => {
+    it('/GET /search with key:`thisisafake`, it should return an empty array', (done) => {
         Request
-            .post('/search')
-            .send({
-                key:'a'
-            })
+            .get('/suggest?q=aasdasd')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
             .then(res => {
                 res.body.should.be.an('array')
-                assert(res.body.length,0)
+                assert(res.body.length === 0)
                 done();
             })
-            .catch(err => done(err))
-    });
-
-    it('/POST /search with no key , it should return 422 error', (done) => {
-        Request
-            .post('/search')
-            .set('Accept', 'application/json')
-            .expect('Content-Type', /json/)
-            .expect(422)
-            .then(res => {
-                done();
+            .catch(err =>{
+                done(err)
             })
-            .catch(err => done(err))
     });
 
     it('/GET /seed it should seed the database if the db is empty', done => {

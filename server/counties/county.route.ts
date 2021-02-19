@@ -1,6 +1,4 @@
 import {USCounties} from './county.controller';
-import {Validator} from '../libraries/Validator';
-import {CountValidation} from './county.validation';
 
 export class IndexRoutes {
 
@@ -15,9 +13,8 @@ export class IndexRoutes {
     /*
     Search county by key * required
      */
-    app.route('/search').post(
-        CountValidation(),Validator.validate,
-        this.usCounties.search.bind(this.usCounties))
+    app.route('/suggest').get(
+        this.usCounties.suggest.bind(this.usCounties))
 
   }
 
