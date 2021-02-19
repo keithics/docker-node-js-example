@@ -11,6 +11,6 @@ services:
     environment:
       - MONGO_URL=mongodb+srv://drc_user:lO8VN1cTq26iXWKA@cluster0.c0g0s.mongodb.net/drc_database?retryWrites=true&w=majority
       - NODE_ENV=development
-      - DEBUG_MONGO=false
+      - DEBUG_MONGO=true
       - NODE_HOST=localhost
       - NODE_PORT=3000

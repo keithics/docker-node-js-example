@@ -11,7 +11,10 @@ export const CountiesSchema = new Schema({
         index: true,
         unique: true
     },
-    state: String,
+    state: {
+        type: String,
+        index: true
+    },
     fips: String,
     created:{
         type: Date,

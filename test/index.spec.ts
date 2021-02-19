@@ -12,7 +12,7 @@ describe('Running REST API County test.. ', () => {
         // run database seed
     });
 
-    it('/POST /search with key:a, it should return an array for counties that begins with letter `a`', (done) => {
+    it('/POST /search with key:a, it should return an array for counties that begins with letter `a` in either state or name', (done) => {
         Request
             .post('/search')
             .send({

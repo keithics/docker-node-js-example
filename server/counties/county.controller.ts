@@ -8,13 +8,21 @@ export class USCounties {
     /**
      * Get US counties based on the keyword, this will match based on the front key
      * example: keyword is `th` will match `thailand` but not `keith`
+     * both name and state are searched
      * @param req Express Request
      * @param res Express Response
      * @returns an Array of Counties
      */
     public async search(req: Request, res: Response): Promise<CountyInterface[]> {
         const key = '^' + req.body.key || '' + '.*';
-        const counties = await County.find({name: {$regex: key, $options: 'i'}}).limit(10).exec()
+        const counties = await County.find(
+            {
+                $or: [
+                    {name: {$regex: key, $options: 'i'}},
+                    {state: {$regex: key, $options: 'i'}}
+                ]
+            }
+        ).limit(10).exec()
         return res.jsonp(counties)
     }
 
