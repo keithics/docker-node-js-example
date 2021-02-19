@@ -6,6 +6,7 @@
   "scripts": {
     "docker-build": "docker build -t keithics/rdc .",
     "docker-run": "docker run -p 3000:3000 -d keithics/rdc",
+    "docker-compose": "docker-compose build --no-cache && docker-compose up",
     "build": "tsc  --allowJs",
     "dev": "ts-node-dev --respawn --transpile-only --rs --clear ./server/server.ts",
     "test": "yarn mocha  --require ts-node/register --require source-map-support/register ./test/index.spec.ts --exit",

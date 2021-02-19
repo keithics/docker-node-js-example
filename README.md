@@ -53,13 +53,18 @@ $ npm run doc
 $ docker-compose up
 ```
 
+
+```bash
+$ npm run docker-compose
+```
+
+
 # TODO
 ~~1. Tests~~
 
 ~~2. Generate documentation~~
    
 ~~3. Open API~~
-
 
 # License
 
