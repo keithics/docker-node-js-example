@@ -6,6 +6,12 @@ https://app.swaggerhub.com/apis/keithics/rdc/6bc3035a-2877-4a97-8d69-64fcbb6b3dc
 
 
 ## Installation
+If you want to run the code without docker, just run the commands below.
+Make sure to edit the `.env` file
+
+For docker, you need to update the environment settings in the `docker-compose.yml`.
+`docker-compose.yml` will override `.env` settings
+
 
 Simply run
 ```bash
