@@ -58,14 +58,22 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<p><img src="https://github.com/keithics/express-typescript/workflows/Node.js%20CI/badge.svg" alt="ExpressTS"></p>
 				<a href="#expressts-with-docker" id="expressts-with-docker" style="color: inherit; text-decoration: none;">
 					<h1>ExpressTS with Docker</h1>
 				</a>
-				<p>This is an example of Express in Typescript and Docker</p>
+				<p>This is an example of Express in Typescript and Docker
+				MongoDB debug is true by default, to turn it off, set DEBUG_MONGO=false in .env or your system&#39;s environment file </p>
+				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+					<h2>API</h2>
+				</a>
+				<p><a href="https://app.swaggerhub.com/apis/keithics/rdc/6bc3035a-2877-4a97-8d69-64fcbb6b3dc7#/">https://app.swaggerhub.com/apis/keithics/rdc/6bc3035a-2877-4a97-8d69-64fcbb6b3dc7#/</a></p>
 				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
 					<h2>Installation</h2>
 				</a>
+				<p>If you want to run the code without docker, just run the commands below.
+				Make sure to edit the <code>.env</code> file</p>
+				<p>For docker, you need to update the environment settings in the <code>docker-compose.yml</code>.
+				<code>docker-compose.yml</code> will override <code>.env</code> settings</p>
 				<p>Simply run</p>
 				<pre><code class="language-bash"><span style="color: #000000">$ npm install </span>
 </code></pre>
@@ -79,20 +87,36 @@
 </code></pre>
 				<p>Type <code>rs</code> inside the terminal to manually restart the app.</p>
 				<p>more information <a href="https://www.npmjs.com/package/ts-node-dev">ts-node-dev</a></p>
+				<a href="#linting" id="linting" style="color: inherit; text-decoration: none;">
+					<h1>Linting</h1>
+				</a>
+				<pre><code class="language-bash"><span style="color: #000000">$ npm run lint</span>
+</code></pre>
+				<a href="#automated-tests" id="automated-tests" style="color: inherit; text-decoration: none;">
+					<h1>Automated Tests</h1>
+				</a>
+				<pre><code class="language-bash"><span style="color: #000000">$ npm run </span><span style="color: #795E26">test</span>
+</code></pre>
+				<a href="#code-documentation" id="code-documentation" style="color: inherit; text-decoration: none;">
+					<h1>Code Documentation</h1>
+				</a>
+				<p>Please check the documentation folder</p>
+				<p>To update the documentation, just run</p>
+				<pre><code class="language-bash"><span style="color: #000000">$ npm run doc</span>
+</code></pre>
 				<a href="#docker" id="docker" style="color: inherit; text-decoration: none;">
 					<h1>Docker</h1>
 				</a>
 				<pre><code class="language-bash"><span style="color: #000000">$ docker-compose up</span>
+</code></pre>
+				<pre><code class="language-bash"><span style="color: #000000">$ npm run docker-compose</span>
 </code></pre>
 				<a href="#todo" id="todo" style="color: inherit; text-decoration: none;">
 					<h1>TODO</h1>
 				</a>
 				<p><del>1. Tests</del></p>
 				<p><del>2. Generate documentation</del></p>
-				<ol start="3">
-					<li>Open API</li>
-				</ol>
-				<p>This will build all files inside <code>dist</code> folder </p>
+				<p><del>3. Open API</del></p>
 				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 					<h1>License</h1>
 				</a>
@@ -125,16 +149,19 @@
 						<a href="modules/config.html">config</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/counties_counties_controller.html">counties/counties.controller</a>
+						<a href="modules/counties_county_controller.html">counties/county.controller</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/counties_counties_interface.html">counties/counties.interface</a>
+						<a href="modules/counties_county_interface.html">counties/county.interface</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/counties_counties_model.html">counties/counties.model</a>
+						<a href="modules/counties_county_model.html">counties/county.model</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/counties_counties_route.html">counties/counties.route</a>
+						<a href="modules/counties_county_route.html">counties/county.route</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/libraries_validator.html">libraries/<wbr>Validator</a>
 					</li>
 				</ul>
 			</nav>

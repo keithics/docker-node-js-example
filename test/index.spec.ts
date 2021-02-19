@@ -27,7 +27,7 @@ describe('Running REST API County test.. ', () => {
 
     it('/GET /search with key:`thisisafake`, it should return an empty array', (done) => {
         Request
-            .get('/suggest?q=aasdasd')
+            .get('/suggest?q=thisisafake')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
