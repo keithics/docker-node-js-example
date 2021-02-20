@@ -1,15 +1,27 @@
 # ExpressTS with Docker
-This is an example of Express in Typescript and Docker
+This is an example of Express in Typescript and Docker.
+
 MongoDB debug is true by default, to turn it off, set DEBUG_MONGO=false in .env or your system's environment file 
 ## API
 https://app.swaggerhub.com/apis/keithics/rdc/1.1
 
+# Docker
+
+```bash
+$ docker-compose up
+```
+
+```bash
+$ npm run docker-compose // build and compose
+```
 
 ## Installation
 If you want to run the code without docker, just run the commands below.
+
 Make sure to edit the `.env` file
 
 For docker, you need to update the environment settings in the `docker-compose.yml`.
+
 `docker-compose.yml` will override `.env` settings
 
 
@@ -52,18 +64,6 @@ To update the documentation, just run
 ```bash
 $ npm run doc
 ```
-
-# Docker
-
-```bash
-$ docker-compose up
-```
-
-
-```bash
-$ npm run docker-compose
-```
-
 
 # TODO
 ~~1. Tests~~
