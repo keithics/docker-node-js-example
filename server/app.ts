@@ -54,7 +54,8 @@ class App {
     }).then(
         () => { /** ready to use. The `mongoose.connect()` promise resolves to undefined. */ },
     ).catch(err => {
-      // process.exit();
+      console.log(err)
+      process.exit();
     });
   }
 

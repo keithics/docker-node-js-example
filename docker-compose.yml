@@ -1,16 +1,52 @@
 version: '2'
 services:
-  web:
+  mongo:
+    image: mongo:4.1.8-xenial
+    container_name: mongo
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_PASSWORD
+    volumes:
+      - dbdata:/data/db
+    networks:
+      - app-network
+    ports:
+      - "27017:27017"
+
+  mongo_seed:
+    build: ./mongo-seed
+    links:
+      - mongo
+
+  node-api:
+    container_name: node-api
+    environment:
+      - MONGO_USERNAME=$MONGO_USERNAME
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_HOSTNAME=mongo
+      - MONGO_PORT=$MONGO_PORT
+      - MONGO_DB=$MONGO_DB
     build: .
-    command: npm run dev
     volumes:
       - .:/usr/app/
       - /usr/app/node_modules
+    restart: on-failure
     ports:
       - "3000:3000"
-    environment:
-      - MONGO_URL=mongodb+srv://drc_user:lO8VN1cTq26iXWKA@cluster0.c0g0s.mongodb.net/drc_database?retryWrites=true&w=majority
-      - NODE_ENV=development
-      - MONGO_DEBUG=true
-      - NODE_HOST=localhost
-      - NODE_PORT=3000
+    env_file: .env
+    links:
+      - mongo
+    networks:
+      - app-network
+    command: npm run dev
+
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbdata:
+  node_modules:

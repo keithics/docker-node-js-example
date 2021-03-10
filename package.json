@@ -8,7 +8,7 @@
     "docker-run": "docker run -p 3000:3000 -d keithics/rdc",
     "docker-compose": "docker-compose build --no-cache && docker-compose up",
     "build": "tsc  --allowJs",
-    "dev": "ts-node-dev --respawn --transpile-only --rs --clear ./server/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only --rs ./server/server.ts",
     "test": "yarn mocha  --require ts-node/register --require source-map-support/register ./test/index.spec.ts --exit",
     "doc": "typedoc --out ./documentation server/**/**.ts",
     "lint": "tslint server/**/**.ts"
@@ -24,6 +24,7 @@
     "http-errors": "~1.6.3",
     "mongoose": "5.7.5",
     "morgan": "~1.9.1",
+    "nodemon": "^2.0.7",
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
