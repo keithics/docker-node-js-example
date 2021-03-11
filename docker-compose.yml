@@ -1,4 +1,5 @@
 version: '2'
+
 services:
   mongo:
     image: mongo:4.1.8-xenial
@@ -16,23 +17,29 @@ services:
       - "27017:27017"
 
   mongo_seed:
-    build: ./mongo-seed
+    build: ./mongo
+    container_name: mongo-seed
+    env_file: .env
     links:
       - mongo
+    networks:
+      - app-network
+
 
   node-api:
     container_name: node-api
     environment:
       - MONGO_USERNAME=$MONGO_USERNAME
       - MONGO_PASSWORD=$MONGO_PASSWORD
-      - MONGO_HOSTNAME=mongo
+      - MONGO_HOSTNAME=$MONGO_HOSTNAME
       - MONGO_PORT=$MONGO_PORT
       - MONGO_DB=$MONGO_DB
+      - WAIT_HOST=mongo:27017
     build: .
     volumes:
       - .:/usr/app/
       - /usr/app/node_modules
-    restart: on-failure
+    restart: always
     ports:
       - "3000:3000"
     env_file: .env
